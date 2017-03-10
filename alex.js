@@ -10,11 +10,10 @@ driver.onError = (error) => {
 let session = driver.session();  
 session  
   .run(
-    'MATCH (p:Person {name: {nameParam}}) RETURN p.name, p.age, p.interest',
-    {nameParam: 'Alex'}
+    'MATCH (p:Person)'
   )
   .then((result) => {
-    console.log("returning result.");
+    console.log("returning result.")
     result.records.forEach((record) => {
       console.log(`Name: ${record.get('p.name')}`);
       console.log(`Age: ${record.get('p.age')}`);
